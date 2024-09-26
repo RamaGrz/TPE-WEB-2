@@ -1,5 +1,5 @@
 <?php
-require_once 'app/controllers/task.controller.php';
+require_once 'app/controllers/player.controller.php';
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -21,21 +21,21 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'listar':
-        $controller = new TaskController();
-        $controller->showTasks();
+    case 'players':
+        $controller = new PlayerController();
+        $controller->showPlayers();
         break;
-    case 'nueva':
-        $controller = new TaskController();
-        $controller->addTask();
+    case 'new':
+        $controller = new PlayerController();
+        $controller->addPlayer();
         break;
-    case 'eliminar':
-        $controller = new TaskController();
-        $controller->deleteTask($params[1]);
+    case 'delete':
+        $controller = new PlayerController();
+        $controller->deletePlayer($params[1]);
         break;
-    case 'finalizar':
-        $controller = new TaskController();
-        $controller->finishTask($params[1]);
+    case 'edit':
+        $controller = new PlayerController();
+        $controller->editPlayer($params[1]);
         break;
     default: 
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
