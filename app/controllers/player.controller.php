@@ -1,6 +1,6 @@
 <?php
 require_once './app/models/player.model.php';
-require_once './app/views/task.view.php';
+require_once './app/views/player.view.php';
 
 class PlayerController {
     private $model;
@@ -13,10 +13,10 @@ class PlayerController {
 
     public function showPlayers() {
         // obtengo las tareas de la DB
-        $tasks = $this->model->getPlayers();
+        $players = $this->model->getPlayers();
 
         // mando las tareas a la vista
-        return $this->view->showPlayers($tasks);
+        return $this->view->showPlayers($players);
     }
 
     public function addPlayer() {

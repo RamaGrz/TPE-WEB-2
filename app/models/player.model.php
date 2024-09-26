@@ -4,27 +4,27 @@ class PlayerModel {
     private $db;
 
     public function __construct() {
-       $this->db = new PDO('mysql:host=localhost;dbname=futbol_db;charset=utf8', 'root', '');
+       $this->db = new PDO('mysql:host=localhost;dbname=futbol-db;charset=utf8', 'root', '');
     }
  
     public function getPlayers() {
         // 2. Ejecuto la consulta
-        $query = $this->db->prepare('SELECT * FROM tareas');
+        $query = $this->db->prepare('SELECT * FROM jugadores');
         $query->execute();
     
         // 3. Obtengo los datos en un arreglo de objetos
-        $tasks = $query->fetchAll(PDO::FETCH_OBJ); 
+        $players = $query->fetchAll(PDO::FETCH_OBJ); 
     
-        return $tasks;
+        return $players;
     }
  
     public function getPlayer($id) {    
-        $query = $this->db->prepare('SELECT * FROM tareas WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM jugadores WHERE id = ?');
         $query->execute([$id]);   
     
-        $task = $query->fetch(PDO::FETCH_OBJ);
+        $player = $query->fetch(PDO::FETCH_OBJ);
     
-        return $task;
+        return $player;
     }
  
     public function insertPlayer($title, $description, $priority, $finished = false) { 
