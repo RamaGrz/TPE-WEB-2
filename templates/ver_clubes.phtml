@@ -1,0 +1,29 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+<a href="clubs/" type="button" class='btn btn-details btn-sm ml-auto'>Volver</a>
+
+<ul class="list-group">
+<li class="list-group-item item-task">
+           Nombre: <b><?= $club->nombre ?></b>
+     </li>
+    <li class="list-group-item item-task">
+           Pais de origen: <b><?= $club->pais ?></b>
+     </li>
+     <li class="list-group-item item-task">
+           Fundacion:  <b><?= $club->fecha_fundacion ?></b>
+     </li> 
+     <li class="list-group-item item-task">
+           Titulos: <b><?= $club->titulos ?></b>
+     </li> 
+    
+        
+    
+    
+            
+</ul>
+
+
+
+
+
+<?php require 'templates/layout/footer.phtml' ?>

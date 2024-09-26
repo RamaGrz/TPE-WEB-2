@@ -1,15 +1,15 @@
 <?php
 
-class PlayerView {
-    public function showPlayers($players) {
+class ClubView {
+    public function showClubs($clubs) {
         // la vista define una nueva variable con la cantida de tareas
-        $count = count($players);
+        
 
         // NOTA: el template va a poder acceder a todas las variables y constantes que tienen alcance en esta funcion
-        require 'templates/lista_jugadores.phtml';
+        require 'templates/lista_clubes.phtml';
     }
-    public function showPlayer($player){
-        require 'templates/ver_jugadores.phtml';
+    public function showClub($club){
+        require 'templates/ver_clubes.phtml';
     }
 
     public function showError($error) {
