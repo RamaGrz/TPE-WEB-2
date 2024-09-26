@@ -18,6 +18,13 @@ class PlayerController {
         // mando las tareas a la vista
         return $this->view->showPlayers($players);
     }
+    public function showPlayer($id) {
+        // obtengo las tareas de la DB
+        $player = $this->model->getPlayer($id);
+
+        // mando las tareas a la vista
+        return $this->view->showPlayer($player);
+    }
 
     public function addPlayer() {
         if (!isset($_POST['title']) || empty($_POST['title'])) {

@@ -6,13 +6,14 @@
 <?php foreach($players as $player): ?>
     <li class="list-group-item item-task">
         <div class="label">
-            <b><?= $player->nombre ?></b> | <?=$player->nacionalidad?> | <?= $player->posicion ?>
+            <b><?= $player->nombre ?></b> 
         </div>
         <div class="actions">
             
-                <a href="finalizar/<?= $player->id_jugador ?>" type="button" class='btn btn-success btn-sm ml-auto'>Finalizar</a> 
+                <a href="view/<?= $player->id_jugador ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
            
-            <a href="eliminar/<?= $player->id_jugador ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Borrar</a>
+           
+                
         </div>
     </li>
 <?php endforeach ?>

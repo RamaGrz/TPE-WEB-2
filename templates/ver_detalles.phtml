@@ -1,0 +1,31 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+<a href="players/" type="button" class='btn btn-details btn-sm ml-auto'>Volver</a>
+
+<ul class="list-group">
+<li class="list-group-item item-task">
+           Nombre: <b><?= $player->nombre ?></b>
+     </li>
+    <li class="list-group-item item-task">
+           Nacionalidad: <b><?= $player->nacionalidad ?></b>
+     </li>
+     <li class="list-group-item item-task">
+           Posicion:  <b><?= $player->posicion ?></b>
+     </li> 
+     <li class="list-group-item item-task">
+           Edad: <b><?= $player->edad ?></b>
+     </li> 
+     <li class="list-group-item item-task">
+           Club: <b><?= $player->id_club ?></b>
+     </li> 
+        
+    
+    
+            
+</ul>
+
+
+
+
+
+<?php require 'templates/layout/footer.phtml' ?>

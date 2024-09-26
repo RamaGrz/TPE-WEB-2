@@ -25,6 +25,10 @@ switch ($params[0]) {
         $controller = new PlayerController();
         $controller->showPlayers();
         break;
+    case 'view':
+        $controller = new PlayerController;
+        $controller->showPlayer($params[1]);
+        break;
     case 'new':
         $controller = new PlayerController();
         $controller->addPlayer();

@@ -13,4 +13,7 @@ class PlayerView {
         require 'templates/error.phtml';
     }
 
+    public function showPlayer($player){
+        require 'templates/ver_detalles.phtml';
+    }
 }

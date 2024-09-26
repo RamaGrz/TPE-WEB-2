@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../web2"
+		},
+		{
+			"path": "../../../Users/gogor/OneDrive/Desktop/BlackWhite"
+		},
+		{
+			"path": "../Black&White"
+		},
+		{
+			"path": "../../../Users/gogor/OneDrive/Desktop/Nueva carpeta/TPE-WEB2-main"
+		},
+		{
+			"path": "../../../Users/gogor/OneDrive/Desktop/todo list"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "TPE-WEB2-main"
+	}
+}

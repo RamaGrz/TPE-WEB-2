@@ -19,7 +19,7 @@ class PlayerModel {
     }
  
     public function getPlayer($id) {    
-        $query = $this->db->prepare('SELECT * FROM jugadores WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM jugadores WHERE id_jugador = ?');
         $query->execute([$id]);   
     
         $player = $query->fetch(PDO::FETCH_OBJ);
