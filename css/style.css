@@ -1,0 +1,67 @@
+*{
+    font-family: "Noto Sans Cherokee", sans-serif;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    margin-left: 43%;
+    color: white;
+}
+.logo-header{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    background-image: url(../img/logo-header.png) ;
+}
+.logo-login{
+    background-image: url(../img/logo-login.png);
+    width: 35px;
+    height: 35px;
+    margin-left: 700px;
+}
+
+#btn-ver{
+    background-color: rgb(194, 187, 187);
+    border: 1px solid rgb(112, 97, 97);
+    color: rgb(73, 71, 71);
+    width: 70px;
+    height: 30px;
+}
+#btn-volver{
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/atras.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 60px;
+}
+#btn-eliminar{
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/basura.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 6px;
+    
+}
+#btn-editar{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    background-image: url(../img/edit.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 6px;
+    
+
+}
+.nombre-jug{
+    font-size: 23px;
+}
+
+
+   
+

@@ -1,11 +1,9 @@
 <?php require 'templates/layout/header.phtml' ?>
 
-<a href="clubs/" type="button" class='btn btn-details btn-sm ml-auto'>Volver</a>
+<a id="btn-volver" href="clubs/" type="button" class='btn btn-details btn-sm ml-auto'></a>
 
 <ul class="list-group">
-<li class="list-group-item item-task">
-           Nombre: <b><?= $club->nombre ?></b>
-     </li>
+      <h2> <b><?= $club->nombre ?></b></h2>
     <li class="list-group-item item-task">
            Pais de origen: <b><?= $club->pais ?></b>
      </li>

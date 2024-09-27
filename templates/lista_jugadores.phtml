@@ -1,16 +1,19 @@
 <?php require 'templates/layout/header.phtml' ?>
 
 
+<a id="btn-volver" href="home/" type="button" class='btn btn-details btn-sm ml-auto'></a>
 
 <ul class="list-group">
 <?php foreach($players as $player): ?>
     <li class="list-group-item item-task">
         <div class="label">
-            <b><?= $player->nombre ?></b> 
+            <p class="nombre-jug"><b><?= $player->nombre ?></b></p>
         </div>
         <div class="actions">
             
-                <a href="viewPlayer/<?= $player->id_jugador ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
+                <a id="btn-ver" href="viewPlayer/<?= $player->id_jugador ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
+                <a id="btn-eliminar" href="viewPlayer/<?= $player->id_jugador ?>" type="button" class='btn btn-details btn-sm ml-auto'></a>
+                <a id="btn-editar" href="viewPlayer/<?= $player->id_jugador ?>" type="button" class='btn btn-details btn-sm ml-auto'></a>
            
            
                 

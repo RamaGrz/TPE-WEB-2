@@ -1,7 +1,7 @@
 <?php require 'templates/layout/header.phtml' ?>
 
 
-
+<a id="btn-volver" href="home/" type="button" class='btn btn-details btn-sm ml-auto'></a>
 <ul class="list-group">
 <?php foreach($clubs as $club): ?>
     <li class="list-group-item item-task">
@@ -10,7 +10,7 @@
         </div>
         <div class="actions">
             
-                <a href="viewClub/<?= $club->id_club ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
+                <a id="btn-ver" href="viewClub/<?= $club->id_club ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
            
            
                 
