@@ -11,6 +11,8 @@
         <div class="actions">
             
                 <a id="btn-ver" href="viewClub/<?= $club->id_club ?>" type="button" class='btn btn-details btn-sm ml-auto'>Ver</a> 
+                <a id="btn-eliminar" href="deleteClub/<?= $club->id_club ?>" type="button" class='btn btn-details btn-sm ml-auto'></a>
+                <a id="btn-editar" href="viewPlayer/<?= $club->id_club ?>" type="button" class='btn btn-details btn-sm ml-auto'></a>
            
            
                 
@@ -18,6 +20,8 @@
     </li>
 <?php endforeach ?>
 </ul>
+<?php require 'templates/agregarClub.phtml' ?>
+
 
 
 

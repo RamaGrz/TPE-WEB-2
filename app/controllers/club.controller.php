@@ -27,38 +27,41 @@ class ClubController {
     }
 
     public function addClub() {
-        if (!isset($_POST['title']) || empty($_POST['title'])) {
+        if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
             return $this->view->showError('Falta completar el título');
         }
+       
     
-        if (!isset($_POST['priority']) || empty($_POST['priority'])) {
-            return $this->view->showError('Falta completar la prioridad');
-        }
+        $nombre = $_POST['nombre'];
+        $pais = $_POST['pais'];
+        $fecha= $_POST['fecha'];
+        $titulos=$_POST['titulos'];
     
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $priority = $_POST['priority'];
-    
-        $id = $this->model->insertClub($title, $description, $priority);
+        $id = $this->model->insertClub($nombre, $pais, $fecha, $titulos);
     
         // redirijo al home (también podriamos usar un método de una vista para motrar un mensaje de éxito)
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL );
     }
 
     
     public function deleteClub($id) {
-        // obtengo la tarea por id
+        // obtengo el club por id
         $club = $this->model->getClub($id);
-
-        if (!$club) {
-            return $this->view->showError("No existe la tarea con el id=$id");
+        
+        // si el club no existe, redirijo a la lista de clubes
+        if (empty($club)) {
+            header('Location: ' . BASE_URL);
+            return; // retorno para salir de la función
         }
-
-        // borro la tarea y redirijo
+    
+        // borro el club
         $this->model->eraseClub($id);
-
-        header('Location: ' . BASE_URL);
+    
+        // redirijo a la lista de clubes
+        header('Location: ' . BASE_URL . "lista_clubes");
+        return; // retorno para finalizar la ejecución de la función
     }
+    
 
     public function editClub($id) {
         $club = $this->model->getClub($id);

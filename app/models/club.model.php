@@ -27,9 +27,9 @@ class ClubModel {
         return $club;
     }
  
-    public function insertClub($title, $description, $priority, $finished = false) { 
-        $query = $this->db->prepare('INSERT INTO tareas(titulo, descripcion, prioridad, finalizada) VALUES (?, ?, ?, ?)');
-        $query->execute([$title, $description, $priority, $finished]);
+    public function insertClub($nombre, $pais, $fecha, $titulos) { 
+        $query = $this->db->prepare('INSERT INTO clubes(nombre, pais, fecha_fundacion, titulos) VALUES (?, ?, ?, ?)');
+        $query->execute([$nombre, $pais, $fecha, $titulos]);
     
         $id = $this->db->lastInsertId();
     
@@ -37,12 +37,12 @@ class ClubModel {
     }
  
     public function eraseClub($id) {
-        $query = $this->db->prepare('DELETE FROM tareas WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM clubes WHERE id_club = ?');
         $query->execute([$id]);
     }
 
     public function updateClub($id) {        
-        $query = $this->db->prepare('UPDATE tareas SET finalizada = 1 WHERE id = ?');
+        $query = $this->db->prepare('UPDATE clubes SET finalizada = 1 WHERE id = ?');
         $query->execute([$id]);
     }
 }
