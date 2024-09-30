@@ -1,7 +1,7 @@
 <?php
 
 class PlayerView {
-    public function showPlayers($players) {
+    public function showPlayers($players,$clubs) {
        
 
         require 'templates/lista_jugadores.phtml';
@@ -10,9 +10,9 @@ class PlayerView {
         require 'templates/ver_jugadores.phtml';
     }
 
-    public function showError($error) {
+   /* public function showError($error) {
         require 'templates/error.phtml';
-    }
+    }*/
 
    
 }

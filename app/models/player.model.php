@@ -27,9 +27,9 @@ class PlayerModel {
         return $player;
     }
  
-    public function insertPlayer($title, $description, $priority, $finished = false) { 
-        $query = $this->db->prepare('INSERT INTO tareas(titulo, descripcion, prioridad, finalizada) VALUES (?, ?, ?, ?)');
-        $query->execute([$title, $description, $priority, $finished]);
+    public function insertPlayer($nombre, $nacionalidad, $posicion, $edad,$id_club) { 
+        $query = $this->db->prepare('INSERT INTO jugadores(nombre, nacionalidad, posicion, edad, id_club) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$nombre, $nacionalidad, $posicion, $edad, $id_club]);
     
         $id = $this->db->lastInsertId();
     
@@ -37,12 +37,12 @@ class PlayerModel {
     }
  
     public function erasePlayer($id) {
-        $query = $this->db->prepare('DELETE FROM tareas WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM jugadores WHERE id_jugador = ?');
         $query->execute([$id]);
     }
 
     public function updatePlayer($id) {        
-        $query = $this->db->prepare('UPDATE tareas SET finalizada = 1 WHERE id = ?');
+        $query = $this->db->prepare('UPDATE jugadores SET finalizada = 1 WHERE id = ?');
         $query->execute([$id]);
     }
 }
