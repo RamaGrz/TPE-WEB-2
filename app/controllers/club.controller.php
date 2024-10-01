@@ -40,7 +40,7 @@ class ClubController {
         $id = $this->model->insertClub($nombre, $pais, $fecha, $titulos);
     
         // redirijo al home (también podriamos usar un método de una vista para motrar un mensaje de éxito)
-        header('Location: ' . BASE_URL );
+        header('Location: ' . BASE_URL .'clubs');
     }
 
     
@@ -50,7 +50,7 @@ class ClubController {
         
         // si el club no existe, redirijo a la lista de clubes
         if (empty($club)) {
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL .'clubs');
             return; // retorno para salir de la función
         }
     
@@ -58,21 +58,36 @@ class ClubController {
         $this->model->eraseClub($id);
     
         // redirijo a la lista de clubes
-        header('Location: ' . BASE_URL . "lista_clubes");
+        header('Location: ' . BASE_URL .'clubs');
         return; // retorno para finalizar la ejecución de la función
     }
     
 
-    public function editClub($id) {
+    
+    function showEdit($id){
         $club = $this->model->getClub($id);
-
-        if (!$club) {
-            return $this->view->showError("No existe la tarea con el id=$id");
+        if(!empty($club)) {
+        $this->view->showEdit($club);
+        } else {
+            $this->view->showError('No se pudo acceder a los datos del club solicitado. 
+                Aún no se encuentran cargados o fueron eliminados');
         }
+    }
 
-        // actualiza la tarea
-        $this->model->updateClub($id);
 
-        header('Location: ' . BASE_URL);
+
+    public function editClub($id) {
+        if(isset($_POST['nombre']) && isset($_POST['pais']) && isset($_POST['fecha']) && isset($_POST['titulos']) &&
+        !empty($_POST['nombre']) && !empty($_POST['pais']) && !empty($_POST['fecha']) && !empty($_POST['titulos'])){
+          $nombre = $_POST['nombre'];
+          $pais = $_POST['pais'];
+          $fecha_fundacion = $_POST['fecha'];
+          $titulos = $_POST ['titulos'];
+
+          $this->model->updateClub($id, $nombre, $pais, $fecha_fundacion, $titulos);
+      } else {
+          $this->view->showError('Error, para modificar el club, verifica que todos los campos esten completos');
+      }
+      header('Location: ' . BASE_URL .'clubs');
     }
 }

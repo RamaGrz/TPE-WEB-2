@@ -10,9 +10,9 @@ class PlayerView {
         require 'templates/ver_jugadores.phtml';
     }
 
-   /* public function showError($error) {
+    public function showError($error) {
         require 'templates/error.phtml';
-    }*/
+    }
 
    
 }

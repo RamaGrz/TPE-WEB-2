@@ -41,8 +41,8 @@ class ClubModel {
         $query->execute([$id]);
     }
 
-    public function updateClub($id) {        
-        $query = $this->db->prepare('UPDATE clubes SET finalizada = 1 WHERE id = ?');
-        $query->execute([$id]);
+    function updateClub($id, $nombre, $pais, $fecha_fundacion, $titulos){
+        $query = $this->db->prepare('UPDATE clubes SET nombre = ?, pais = ?, fecha_fundacion = ?,titulos = ? WHERE id_club = ?');
+        $query->execute([$nombre,  $pais, $fecha_fundacion, $titulos,$id]);
     }
 }

@@ -5,6 +5,7 @@ require_once './app/models/club.model.php';
 
 class PlayerController {
     private $model;
+    private $modelClub;
     private $view;
 
     public function __construct() {
@@ -59,7 +60,7 @@ class PlayerController {
         $id = $this->model->insertPlayer($nombre, $nacionalidad, $posicion, $edad,$id_club);
     
         // redirijo al home (también podriamos usar un método de una vista para motrar un mensaje de éxito)
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . 'players');
     }
 
     
@@ -77,7 +78,7 @@ class PlayerController {
         $this->model->erasePlayer($id);
     
         // redirijo a la lista de jugadores
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL .'players') ;
         return; // retorno para finalizar la ejecución de la función
     }
     
@@ -92,7 +93,7 @@ class PlayerController {
         // actualiza la tarea
         $this->model->updatePlayer($id);
 
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . 'players');
     }
 }
 

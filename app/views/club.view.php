@@ -11,6 +11,9 @@ class ClubView {
     public function showClub($club){
         require 'templates/ver_clubes.phtml';
     }
+    public function showEdit($club){
+        require 'templates/editarClub.phtml';
+    }
 
     public function showError($error) {
         require 'templates/error.phtml';

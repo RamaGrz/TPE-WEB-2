@@ -2,23 +2,31 @@
 
 <a id="btn-volver" href="clubs/" type="button" class='btn btn-details btn-sm ml-auto'></a>
 
-<ul class="list-group">
-      <h2> <b><?= $club->nombre ?></b></h2>
-    <li class="list-group-item item-task">
-           Pais de origen 🌍 : <b><?= $club->pais ?></b>
-     </li>
-     <li class="list-group-item item-task">
-           Fundacion 📅 :  <b><?= $club->fecha_fundacion ?></b>
-     </li> 
-     <li class="list-group-item item-task">
-           Titulos 🏆 : <b><?= $club->titulos  ?></b>
-     </li> 
-    
-        
-    
-    
-            
-</ul>
+<div class="container mt-5">
+    <div class="card text-left shadow-sm mx-auto" style="width: 25rem; height: auto;">
+        <div class="card-header text-center" style="background-color: rgba(30, 30, 30, 0.8); color: white;">
+            <h2 class="mb-0"><b><?= $club->nombre ?></b></h2>
+        </div>
+        <div class="card-body d-flex flex-column" style="height: 100%;">
+            <ul class="list-group list-group-flush flex-fill">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Pais de origen:</strong> <span><?= $club->pais ?></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Fecha de fundacion:</strong> <span><?= $club->fecha_fundacion ?></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Titulos:</strong> <span><?= $club->titulos ?></span>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 

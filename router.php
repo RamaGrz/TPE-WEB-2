@@ -2,6 +2,7 @@
 require_once 'app/controllers/player.controller.php';
 require_once 'app/controllers/home.controller.php';
 require_once 'app/controllers/club.controller.php';
+require_once 'app/controllers/auth.controller.php';
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -63,6 +64,10 @@ switch ($params[0]) {
         $controller = new ClubController();
         $controller->deleteClub($params[1]);
          break;
+    case 'showEditClub':
+        $controller = new ClubController();
+        $controller->showEdit($params[1]);
+         break;     
     case 'editClub':
         $controller = new ClubController();
         $controller->editClub($params[1]);
