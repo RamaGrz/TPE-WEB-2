@@ -67,6 +67,10 @@ switch ($params[0]) {
         $controller = new ClubController();
         $controller->editClub($params[1]);
         break;    
+     case 'showLogin':
+            $controller = new AuthController();
+            $controller->showLogin();
+            break;
 
     default: 
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto

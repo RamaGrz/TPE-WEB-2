@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="card text-left shadow-sm mx-auto" style="background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-header text-center" style="background-color: rgba(0, 0, 0, 0.9); color: white;">
+            <h4 class="mb-0" style="font-size: 1.2rem; text-transform: uppercase;">Agregar Jugador</h4>
+        </div>
+        <div class="card-body">
+            <form action="newPlayer" method="POST" class="row g-3 d-flex justify-content-center">
+                <div class="col-md-2">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                    <input type="text" class="form-control" name="nacionalidad" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="posicion" class="form-label">Posición</label>
+                    <input type="text" class="form-control" name="posicion" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="number" class="form-control" name="edad" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="club" class="form-label">Club</label>
+                    <select name="id_club" id="club" class="form-select" required>
+                        <option selected disabled>Seleccionar...</option>
+                        <?php foreach ($clubs as $club): ?>
+                            <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

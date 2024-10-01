@@ -42,16 +42,8 @@
     background-size: cover;
     margin-right: 60px;
 }
-#btn-eliminar{
-    width: 25px;
-    height: 25px;
-    background-image: url(../img/basura.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: 6px;
-    
-}
+
+
 #btn-editar{
     width: 20px;
     height: 20px;
@@ -70,9 +62,7 @@
 
 
 .hola{
-    color:red;
-}.div{
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
+    color: rgb(52, 180, 52);
 }
+
+

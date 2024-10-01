@@ -1,42 +1,87 @@
 <?php require 'templates/layout/header.phtml' ?>
 <div class="text-center">
-            <h1>Bienvenido a la página oficial de Zona De Gol</h1>
-            <p>Aqui podra ver la información detallada de jugadores y clubes de futbol.</p>
-        </div>
-        <div class="secciones mt-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <section class="jugadores bg-light p-3">
-                        <h2>Jugadores</h2>
-                        <p>Información sobre los jugadores que tenemos registados.</p>
-                        <a class="btn btn-primary" href="players">Ver Jugadores</a>
-                    </section>
-                </div>
-                <div class="col-md-6">
-                    <section class="clubes bg-light p-3">
-                        <h2>Clubes</h2>
-                        <p>Información sobre los clubes que tenemos registados.</p>
-                        <a class="btn btn-primary" href="clubs">Ver Clubes</a>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <form class="row g-3">
+<h1 class="text-center fw-bold" style="font-family: 'Arial', sans-serif; font-size: 2.5rem; color: #333; text-shadow: none;">Bienvenido a la página oficial de Zona De Gol</h1>
+<p class="text-center" style="font-family: 'Arial', sans-serif; font-size: 1.2rem; color: #555; margin-top: 10px;">Aquí podrá ver la información detallada de jugadores y clubes de fútbol.</p>
 
-    <form class="row g-3">
+ </div>
+        <div class="secciones mt-5">
+    <div class="row">
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <section class="jugadores bg-dark p-4 shadow-sm d-flex flex-column justify-content-center align-items-center" style="height: 320px; border-radius: 10px;">
+                <h2 class="fw-bold text-center text-uppercase text-white" style="font-family: 'Arial', sans-serif; font-size: 1.75rem;">Jugadores</h2>
+                <p class="text-light text-center mb-4 fw-bold">Información sobre los jugadores que tenemos registrados.</p>
+                <a class="btn btn-success btn-lg mt-2" href="players">Ver</a>
+            </section>
         </div>
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <section class="clubes bg-dark p-4 shadow-sm d-flex flex-column justify-content-center align-items-center" style="height: 320px; border-radius: 10px;">
+                <h2 class="fw-bold text-center text-uppercase text-white" style="font-family: 'Arial', sans-serif; font-size: 1.75rem;">Clubes</h2>
+                <p class="text-light text-center mb-4 fw-bold">Información sobre los clubes que tenemos registrados.</p>
+                <a class="btn btn-success btn-lg mt-2" href="clubs">Ver</a>
+            </section>
         </div>
-  
-         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+</div>
+
+
+
+
+       
+
+   
+
+
+  <section class="vh-50">
+  <div class="container-fluid h-100 d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-sm-6 text-white">
+
+        <!-- Div gris transparente -->
+        <div style="background-color: rgba(36, 34, 34); padding: 20px; border-radius: 8px;">
+          <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+            <form style="width: 60rem;" class="d-flex flex-column align-items-center">
+
+              <!-- Título Zona de Gol -->
+              <h1 class="fw-bold mb-4" style="letter-spacing: 3px; font-family: 'Poppins', sans-serif; font-size: 3rem;">
+                Zona de Gol
+              </h1>
+
+              <div data-mdb-input-init class="form-outline mb-4 w-100">
+                <label class="form-label" for="form2Example18">Username</label>
+                <input type="email" id="form2Example18" class="form-control form-control-lg" />
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4 w-100">
+                <label class="form-label" for="form2Example28">Password</label>
+                <input type="password" id="form2Example28" class="form-control form-control-lg" />
+              </div>
+
+              <div class="pt-1 mb-4 w-100 d-flex justify-content-center">
+                <button 
+                  data-mdb-button-init 
+                  data-mdb-ripple-init 
+                  style="background-color: rgb(52, 180, 52); color: white; border: none;" 
+                  class="btn btn-lg btn-block" 
+                  type="button">
+                  Login
+                </button>
+              </div>
+
+            </form>
+
+          </div>
         </div>
-    </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
         
 

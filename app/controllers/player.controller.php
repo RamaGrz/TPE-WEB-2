@@ -64,7 +64,7 @@ class PlayerController {
 
     
     public function deletePlayer($id) {
-        // obtengo el club por id
+        // obtengo el jugador por id
         $player = $this->model->getPlayer($id);
         
         // si el jugador no existe, redirijo a la lista de jugadores
@@ -82,7 +82,7 @@ class PlayerController {
     }
     
 
-   /* public function editPlayer($id) {
+    public function editPlayer($id) {
         $player = $this->model->getPlayer($id);
 
         if (!$player) {
@@ -93,6 +93,6 @@ class PlayerController {
         $this->model->updatePlayer($id);
 
         header('Location: ' . BASE_URL);
-    }*/
+    }
 }
 
