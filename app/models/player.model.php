@@ -41,8 +41,8 @@ class PlayerModel {
         $query->execute([$id]);
     }
 
-    public function updatePlayer($id) {        
-        $query = $this->db->prepare('UPDATE jugadores SET finalizada = 1 WHERE id = ?');
-        $query->execute([$id]);
+    function updatePlayer($id, $nombre, $nacionalidad, $posicion, $edad, $id_jugador){
+        $query = $this->db->prepare('UPDATE jugadores SET nombre = ?, nacionalidad = ?, posicion = ?,edad = ? WHERE id_jugador = ?');
+        $query->execute([$nombre,  $nacionalidad, $posicion, $edad,$id]);
     }
-}
+} 

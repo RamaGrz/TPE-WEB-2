@@ -1,6 +1,7 @@
 <?php
 
-class LoginView {
+class AuthView {
+    private $user = null;
     
     public function showLogin(){
         require 'templates/login.phtml';

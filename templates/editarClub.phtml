@@ -1,29 +1,37 @@
 <?php require 'templates/layout/header.phtml' ?>
 <a id="btn-volver" href="clubs/" type="button" class='btn btn-details btn-sm ml-auto'></a>
 
+    
+
 <div class="container mt-5">
-    <div class="card text-left shadow-sm mx-auto" style="background-color: rgba(255, 255, 255, 0.8);">
+    <div class="card text-left shadow-sm mx-auto" style="background-color: rgba(255, 255, 255, 0.8); max-width: 600px;">
         <div class="card-header text-center" style="background-color: rgba(0, 0, 0, 0.9); color: white;">
             <h4 class="mb-0" style="font-size: 1.2rem; text-transform: uppercase;">Editar Club</h4>
         </div>
         <div class="card-body">
-            <form action="editClub/<?= $club->id_club ?>" method="POST" class="row g-3 d-flex justify-content-center" >
-                <div class="col-md-2">
+            <form action="editClub/<?= $club->id_club ?>" method="POST" class="row g-3 d-flex justify-content-center">
+                
+                <!-- Primera fila -->
+                <div class="col-md-6">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" name="nombre" value='<?= $club->nombre ?>' required>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <label for="pais de origen" class="form-label">Pais de origen</label>
                     <input type="text" class="form-control" name="pais" value='<?= $club->pais ?>' required>
                 </div>
-                <div class="col-md-2">
+
+                <!-- Segunda fila -->
+                <div class="col-md-6">
                     <label for="Fecha de fundacion" class="form-label">Fecha de fundacion</label>
                     <input type="date" class="form-control" name="fecha" value='<?= $club->fecha_fundacion ?>' required>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <label for="titulos" class="form-label">Titulos</label>
                     <input type="number" class="form-control" name="titulos" value='<?= $club->titulos ?>' required>
                 </div>
+
+                <!-- Botón de enviar -->
                 <div class="col-md-12 d-flex justify-content-center mt-3">
                     <button type="submit" class="btn btn-success">Modificar</button>
                 </div>
@@ -31,4 +39,6 @@
         </div>
     </div>
 </div>
+
+
 <?php require 'templates/layout/footer.phtml' ?>
