@@ -8,7 +8,7 @@ class ClubView {
         // NOTA: el template va a poder acceder a todas las variables y constantes que tienen alcance en esta funcion
         require 'templates/lista_clubes.phtml';
     }
-    public function showClub($club){
+    public function showClub($club,$players){
         require 'templates/ver_clubes.phtml';
     }
     public function showEdit($club){

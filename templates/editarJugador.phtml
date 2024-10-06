@@ -17,28 +17,28 @@
                     <input type="text" class="form-control" name="nombre" value='<?= $player->nombre ?>' required>
                 </div>
                 <div class="col-md-6">
-                    <label for="pais de origen" class="form-label">Pais</label>
-                    <input type="text" class="form-control" name="pais" value='<?= $player->nacionalidad ?>' required>
+                    <label for="nacionalidad" class="form-label">Pais</label>
+                    <input type="text" class="form-control" name="nacionalidad" value='<?= $player->nacionalidad ?>' required>
                 </div>
 
                 <!-- Segunda fila -->
                 <div class="col-md-6">
-                    <label for="Fecha de fundacion" class="form-label">Posicion</label>
-                    <input type="date" class="form-control" name="fecha" value='<?= $player->posicion ?>' required>
+                    <label for="posicion" class="form-label">Posicion</label>
+                    <input type="text" class="form-control" name="posicion" value='<?= $player->posicion ?>' required>
                 </div>
                 <div class="col-md-6">
-                    <label for="titulos" class="form-label">Edad</label>
-                    <input type="number" class="form-control" name="titulos" value='<?= $player->edad ?>' required>
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="number" class="form-control" name="edad" value='<?= $player->edad ?>' required>
                 </div>
-                <div class="col-md-2">
-                    <label for="club" class="form-label">Club</label>
-                    <select name="id_club" id="club" class="form-select" required>
-                        <option selected disabled>Seleccionar...</option>
-                        <?php foreach ($clubs as $club): ?>
-                            <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                <div class="col-md-2 text-center">
+                 <h3 class="form-label">Club</h3>
+                <select name="id_club" id="club" class="form-select">
+                <option selected disabled></option>
+                <?php foreach ($clubes as $club) {?>
+                    <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
+                <?php } ?>
+                </select>
+                 </div>
 
                 <!-- Botón de enviar -->
                 <div class="col-md-12 d-flex justify-content-center mt-3">

@@ -1,6 +1,7 @@
 <?php
 require_once './app/models/user.model.php';
 require_once './app/views/auth.view.php';
+require_once './app/helpers/AuthHelper.php';
 
 class AuthController{
     private $model;
@@ -14,35 +15,37 @@ class AuthController{
     function showLogin(){
         $this->view->showLogin();
     }
+    public function logout() {
+        AuthHelper::logout();
+        header('Location: ' . BASE_URL . 'home');    
+    }
 
     public function login() {
-        if (!isset($_POST['user']) || empty($_POST['user'])) {
-            return $this->view->showLogin('Falta completar el nombre de usuario');
+       
+        if (!isset($_POST['usuario']) || empty($_POST['usuario'])) {
+            return $this->view->showErrorFaltanCampos('Falta completar el nombre de usuario');
         }
     
-        if (!isset($_POST['password']) || empty($_POST['password'])) {
-            return $this->view->showLogin('Falta completar la contraseña');
+        if (!isset($_POST['contrasenia']) || empty($_POST['contrasenia'])) {
+            return $this->view->showErrorFaltanCampos('Falta completar la contraseña');
         }
     
-        $user = $_POST['user'];
-        $password = $_POST['password'];
+        $usuario = $_POST['usuario'];
+        $contrasenia = $_POST['contrasenia'];
     
         // Verificar que el usuario está en la base de datos
-        $userFromDB = $this->model->getUserByUser($user);
+        $user= $this->model->getUserByUser($usuario);
 
         // password: 123456
         // $userFromDB->password: $2y$10$xQop0wF1YJ/dKhZcWDqHceUM96S04u73zGeJtU80a1GmM.H5H0EHC
-        if($userFromDB && password_verify($password, $userFromDB->password)){
+        if($user && password_verify($contrasenia, $user->contrasenia)){
             // Guardo en la sesión el ID del usuario
-            session_start();
-            $_SESSION['ID_USER'] = $userFromDB->id;
-            $_SESSION['USER'] = $userFromDB->usuario;
+            AuthHelper::login($user);
+           
             
-    
-            // Redirijo al home
             header('Location: ' . BASE_URL);
         } else {
-            return $this->view->showLogin('Credenciales incorrectas');
+            return $this->view->showErrorCredenciales('Credenciales incorrectas');
         }
     }
 }

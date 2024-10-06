@@ -3,7 +3,7 @@ require_once 'app/controllers/player.controller.php';
 require_once 'app/controllers/home.controller.php';
 require_once 'app/controllers/club.controller.php';
 require_once 'app/controllers/auth.controller.php';
-require_once 'libs/response.php';
+
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -38,12 +38,12 @@ switch ($params[0]) {
         $controller->showPlayer($params[1]);
         break;
     case 'newPlayer':
-        sessionAuthMiddleware($res);
+        
         $controller = new PlayerController();
         $controller->addPlayer();
         break;
     case 'deletePlayer':
-        sessionAuthMiddleware($res);
+        
         $controller = new PlayerController();
         $controller->deletePlayer($params[1]);
         break;
@@ -51,11 +51,10 @@ switch ($params[0]) {
         $controller = new PlayerController();
         $controller->editPlayer($params[1]);
         break;
-     case 'showEditPlayer':
-        sessionAuthMiddleware($res);
-            $controller = new PlayerController();
-            $controller->showEdit($params[1]);
-             break;
+    case 'showEditPlayer':    
+        $controller = new PlayerController();
+        $controller->showEdit($params[1]);
+           break;
     case 'clubs':
          $controller = new ClubController();
          $controller->showClubs();
@@ -65,22 +64,22 @@ switch ($params[0]) {
         $controller->showClub($params[1]);
         break;
      case 'newClub':
-        sessionAuthMiddleware($res);
+        
         $controller = new ClubController();
         $controller->addClub();
         break;
     case 'deleteClub':
-        sessionAuthMiddleware($res);
+        
         $controller = new ClubController();
         $controller->deleteClub($params[1]);
          break;
     case 'showEditClub':
-        sessionAuthMiddleware($res);
+       
         $controller = new ClubController();
         $controller->showEdit($params[1]);
          break;     
     case 'editClub':
-        sessionAuthMiddleware($res);
+        
         $controller = new ClubController();
         $controller->editClub($params[1]);
         break;    
@@ -91,6 +90,10 @@ switch ($params[0]) {
     case 'login':
                 $controller = new AuthController();
                 $controller->login();
+                break;
+    case 'logout':
+                $controller = new AuthController();
+                $controller->logout();
                 break;
 
     default: 

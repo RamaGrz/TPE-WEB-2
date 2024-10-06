@@ -82,18 +82,31 @@ class PlayerController {
         return; // retorno para finalizar la ejecución de la función
     }
     
+    
+    function showEdit($id){
+        $player = $this->model->getPlayer($id);
+        if(!empty($player)) {
+        $this->view->showEdit($player);
+        } else {
+            $this->view->showError('No se pudo acceder a los datos del club solicitado. 
+                Aún no se encuentran cargados o fueron eliminados');
+        }
+    }
 
     public function editPlayer($id) {
-        $player = $this->model->getPlayer($id);
+        AuthHelper::verify();
+        if(isset($_POST['nombre']) && isset($_POST['nacionalidad']) && isset($_POST['posicion']) &&  isset($_POST['edad'])  &&  isset($_POST['id_club']) &&
+        !empty($_POST['nombre']) && !empty($_POST['nacionalidad']) && !empty($_POST['posicion']) && !empty($_POST['edad'])  && !empty($_POST['id_club'])){
+            $nombre = $_POST['nombre'];
+            $nacionalidad = $_POST['nacionalidad'];
+            $posicion = $_POST['posicion'];
+            $edad = $_POST ['edad'];
+            $id_club = $_POST ['id_club'];
 
-        if (!$player) {
-            return $this->view->showError("No existe jugador con el id=$id");
+            $this->model->updatePlayer($id, $nombre, $nacionalidad, $posicion, $edad, $id_club);
+        } else {
+            $this->view->showError("Error al Modificar Jugador, verifica que todos los campos esten completos");
         }
-
-        // actualiza la tarea
-        $this->model->updatePlayer($id);
-
-        header('Location: ' . BASE_URL . 'players');
-    }
 }
 
+}

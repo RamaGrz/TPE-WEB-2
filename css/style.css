@@ -19,6 +19,12 @@
     height: 35px;
     margin-left: 700px;
 }
+.logo-logout{
+    background-image: url(../img/logout-icon.png);
+    width: 35px;
+    height: 35px;
+    margin-left: 700px;
+}
 .zona:hover {
     color: white; 
   

@@ -23,6 +23,16 @@
         </div>
     </div>
 </div>
+<ul class="list-group">
+  <?php foreach ($players as $player) { ?>
+    <li class="list-group-item">
+        <div class="col-md-6">
+          <h4><?= $player->nombre ?></h4>
+          <p>Club: <?= $player->nombre_club ?></p>
+        </div>
+    </li>
+  <?php } ?>
+</ul>
 
 
 

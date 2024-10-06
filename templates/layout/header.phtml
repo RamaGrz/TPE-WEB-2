@@ -27,9 +27,15 @@
                 <div class="logo-header"></div>
             </a>
             <a class="navbar-brand text-white fw-bold zona" href="home" style="font-family: 'Poppins', sans-serif;">Zona De Gol</a>
-            <a href="showLogin">
-                <div class="logo-login"></div>
-            </a>
+            <?php if(!isset($_SESSION['USER_ID'])): ?>
+                <a href="showLogin">
+                    <div class="logo-login"></div>
+                </a>
+            <?php else: ?>
+                <a href="logout">
+                    <div class="logo-logout"></div>
+                </a>
+            <?php endif; ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -5,10 +5,12 @@ require_once './app/views/club.view.php';
 class ClubController {
     private $model;
     private $view;
+    private $modelPlayer;
 
     public function __construct() {
         $this->model = new ClubModel();
         $this->view = new ClubView();
+        $this->modelPlayer = new PlayerModel();
     }
 
     public function showClubs() {
@@ -22,11 +24,14 @@ class ClubController {
         // obtengo las tareas de la DB
         $club = $this->model->getClub($id);
 
-        // mando las tareas a la vista
-        return $this->view->showClub($club);
+        if(!empty($club)) {
+            $jugadores=$this->modelPlayer->getJugadoresConNombreDeClubByClubId($id);
+            $this->view->showClub($club, $jugadores);
+        }
     }
 
     public function addClub() {
+        AuthHelper::verify();
         if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
             return $this->view->showError('Falta completar el título');
         }

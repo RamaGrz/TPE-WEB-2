@@ -1,7 +1,7 @@
 <?php
 
 class AuthView {
-    private $user = null;
+    
     
     public function showLogin(){
         require 'templates/login.phtml';
@@ -9,6 +9,12 @@ class AuthView {
 
     public function showError($error) {
         require 'templates/error.phtml';
+    }
+    public function showErrorCredenciales($error) {
+        require 'templates/errorCredencial.phtml';
+    }
+    public function showErrorFaltanCampos($error) {
+        require 'templates/errorFaltan.phtml';
     }
 
    

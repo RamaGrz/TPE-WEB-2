@@ -7,25 +7,24 @@ class PlayerModel {
        $this->db = new PDO('mysql:host=localhost;dbname=futbol-db;charset=utf8', 'root', '');
     }
  
-    public function getPlayers() {
-        // 2. Ejecuto la consulta
-        $query = $this->db->prepare('SELECT * FROM jugadores');
+    function getPlayers(){
+        $query = $this->db->prepare('SELECT jugadores.*, clubes.nombre AS nombre_club FROM jugadores INNER JOIN clubes ON jugadores.id_club = clubes.id_club');
         $query->execute();
-    
-        // 3. Obtengo los datos en un arreglo de objetos
-        $players = $query->fetchAll(PDO::FETCH_OBJ); 
-    
+
+        $players = $query->fetchAll(PDO::FETCH_OBJ);
         return $players;
     }
- 
-    public function getPlayer($id) {    
-        $query = $this->db->prepare('SELECT * FROM jugadores WHERE id_jugador = ?');
-        $query->execute([$id]);   
-    
-        $player = $query->fetch(PDO::FETCH_OBJ);
-    
-        return $player;
-    }
+
+
+
+    function getPlayer($id){
+        $query = $this->db->prepare('SELECT jugadores.*, clubes.nombre AS nombre_club FROM jugadores INNER JOIN clubes ON jugadores.id_club = clubes.id_club WHERE id_jugador = ?');
+        $query->execute([$id]);
+
+        $jugador = $query->fetch(PDO::FETCH_OBJ);
+        return $jugador;
+    }    
+
  
     public function insertPlayer($nombre, $nacionalidad, $posicion, $edad,$id_club) { 
         $query = $this->db->prepare('INSERT INTO jugadores(nombre, nacionalidad, posicion, edad, id_club) VALUES (?, ?, ?, ?, ?)');
@@ -41,8 +40,15 @@ class PlayerModel {
         $query->execute([$id]);
     }
 
-    function updatePlayer($id, $nombre, $nacionalidad, $posicion, $edad, $id_jugador){
-        $query = $this->db->prepare('UPDATE jugadores SET nombre = ?, nacionalidad = ?, posicion = ?,edad = ? WHERE id_jugador = ?');
-        $query->execute([$nombre,  $nacionalidad, $posicion, $edad,$id]);
+    function updatePlayer($id, $nombre, $nacionalidad, $posicion, $edad, $id_club){
+        $query = $this->db->prepare('UPDATE jugadores SET nombre = ?, nacionalidad = ?, posicion = ?,edad = ?, id_club = ? WHERE id_jugador = ?');
+        $query->execute([$nombre,  $nacionalidad, $posicion, $edad,$id_club,$id]);
+    }
+    function getJugadoresConNombreDeClubByClubId($id){
+        $query = $this->db->prepare('SELECT jugadores.*, clubes.nombre AS nombre_club FROM jugadores INNER JOIN clubes ON jugadores.id_club = clubes.id_club WHERE jugadores.id_club = ?');
+        $query->execute([$id]);
+
+        $players = $query->fetchAll(PDO::FETCH_OBJ);
+        return $players;
     }
 } 

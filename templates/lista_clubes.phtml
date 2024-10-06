@@ -13,12 +13,14 @@
                 <a id="btn-ver" href="viewClub/<?= $club->id_club ?>" type="button" class="btn btn-info btn-sm mx-2 fw-bold">
                     <i>Ver</i> <!-- Texto en lugar del icono de ojo -->
                 </a> 
-                <a id="btn-editar" href="showEditClub/<?= $club->id_club ?>" type="button" class="btn btn-warning btn-sm mx-2 border-0">
+             
+                    <a id="btn-editar" href="showEditClub/<?= $club->id_club ?>" type="button" class="btn btn-warning btn-sm mx-2 border-0">
                     <i class="bi bi-pencil"></i> <!-- Icono de editar -->
-                </a>
-                <a id="btn-eliminar" href="deleteClub/<?= $club->id_club ?>" type="button" class="btn btn-danger btn-sm d-flex align-items-center mx-2">
+                    </a>
+                    <a id="btn-eliminar" href="deleteClub/<?= $club->id_club ?>" type="button" class="btn btn-danger btn-sm d-flex align-items-center mx-2">
                     <i class="fas fa-trash-alt" style="color: white;"></i> <!-- Icono de papelera blanca -->
-                </a>
+                    </a>
+               
             </div>
         </li>
     <?php endforeach; ?>
@@ -34,8 +36,9 @@
 
 
 
-
-<?php  require 'templates/agregarClub.phtml' ?>
+<?php 
+require 'templates/agregarClub.phtml';
+?>
 
 
 <?php require 'templates/layout/footer.phtml' ?>
