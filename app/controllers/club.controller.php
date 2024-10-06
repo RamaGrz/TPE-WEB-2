@@ -1,6 +1,7 @@
 <?php
 require_once './app/models/club.model.php';
 require_once './app/views/club.view.php';
+require_once './app/helpers/AuthHelper.php';
 
 class ClubController {
     private $model;
@@ -8,6 +9,8 @@ class ClubController {
     private $modelPlayer;
 
     public function __construct() {
+        AuthHelper::initialize();
+        
         $this->model = new ClubModel();
         $this->view = new ClubView();
         $this->modelPlayer = new PlayerModel();
@@ -50,6 +53,7 @@ class ClubController {
 
     
     public function deleteClub($id) {
+        AuthHelper::verify();
         // obtengo el club por id
         $club = $this->model->getClub($id);
         
@@ -70,6 +74,7 @@ class ClubController {
 
     
     function showEdit($id){
+        AuthHelper::verify();
         $club = $this->model->getClub($id);
         if(!empty($club)) {
         $this->view->showEdit($club);
@@ -82,6 +87,7 @@ class ClubController {
 
 
     public function editClub($id) {
+        AuthHelper::verify();
         if(isset($_POST['nombre']) && isset($_POST['pais']) && isset($_POST['fecha']) && isset($_POST['titulos']) &&
         !empty($_POST['nombre']) && !empty($_POST['pais']) && !empty($_POST['fecha']) && !empty($_POST['titulos'])){
           $nombre = $_POST['nombre'];

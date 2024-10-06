@@ -6,6 +6,7 @@ class HomeController{
     private $view;
     
     public function __construct() {
+        AuthHelper::initialize();
         $this->view = new HomeView();
     }
 

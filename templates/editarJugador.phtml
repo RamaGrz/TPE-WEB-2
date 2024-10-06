@@ -33,8 +33,8 @@
                 <div class="col-md-2 text-center">
                  <h3 class="form-label">Club</h3>
                 <select name="id_club" id="club" class="form-select">
-                <option selected disabled></option>
-                <?php foreach ($clubes as $club) {?>
+                <option selected disabled>Seleccionar...</option>
+                <?php foreach ($clubs as $club) {?>
                     <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
                 <?php } ?>
                 </select>

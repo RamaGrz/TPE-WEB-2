@@ -2,6 +2,8 @@
 require_once './app/models/player.model.php';
 require_once './app/views/player.view.php';
 require_once './app/models/club.model.php';
+require_once './app/helpers/AuthHelper.php';
+
 
 class PlayerController {
     private $model;
@@ -9,6 +11,7 @@ class PlayerController {
     private $view;
 
     public function __construct() {
+        AuthHelper::initialize();
         $this->model = new PlayerModel();
         $this->modelClub = new ClubModel();
         $this->view = new PlayerView();
@@ -31,6 +34,7 @@ class PlayerController {
     }
 
     public function addPlayer() {
+        AuthHelper::verify();
        if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
             return $this->view->showError('Falta completar el nombre');
         }
@@ -65,6 +69,7 @@ class PlayerController {
 
     
     public function deletePlayer($id) {
+        AuthHelper::verify();
         // obtengo el jugador por id
         $player = $this->model->getPlayer($id);
         
@@ -84,13 +89,17 @@ class PlayerController {
     
     
     function showEdit($id){
+        AuthHelper::verify();
         $player = $this->model->getPlayer($id);
+        $clubs = $this->modelClub->getClubs();
+
         if(!empty($player)) {
-        $this->view->showEdit($player);
+        $this->view->showEdit($player,$clubs);
         } else {
             $this->view->showError('No se pudo acceder a los datos del club solicitado. 
                 Aún no se encuentran cargados o fueron eliminados');
         }
+        
     }
 
     public function editPlayer($id) {
@@ -107,6 +116,7 @@ class PlayerController {
         } else {
             $this->view->showError("Error al Modificar Jugador, verifica que todos los campos esten completos");
         }
+           header('Location: ' . BASE_URL .'players') ;
 }
 
 }

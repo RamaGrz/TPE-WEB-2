@@ -9,7 +9,7 @@ class PlayerView {
     public function showPlayer($player){
         require 'templates/ver_jugadores.phtml';
     }
-    public function showEdit($player){
+    public function showEdit($player,$clubs){
         require 'templates/editarJugador.phtml';
     }
     public function showError($error) {
