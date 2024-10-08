@@ -23,17 +23,30 @@
         </div>
     </div>
 </div>
+
+<h2 class="mb-5 mt-5 fw-bold text-center text-uppercase" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; background: -webkit-linear-gradient(45deg, #6c757d, #495057); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 3px;">
+  Jugadores
+</h2> <!-- Título estilizado con degradado y mayúsculas -->
+
 <ul class="list-group">
   <?php foreach ($players as $player) { ?>
-    <li class="list-group-item">
-        <div class="col-md-6">
-          <h4><?= $player->nombre ?></h4>
-          <p>Club: <?= $player->nombre_club ?></p>
+    <li class="list-group-item shadow-sm rounded mb-3 p-3 d-flex justify-content-between align-items-center" style="border-left: 4px solid #6c757d;">
+        <div class="d-flex align-items-center">
+          <!-- Icono de jugador en color gris -->
+          <i class="bi bi-person-circle" style="font-size: 2rem; color: #6c757d; margin-right: 15px;"></i> 
+          <div>
+            <h4 class="mb-1 fw-bold"><?= $player->nombre ?></h4> <!-- Nombre del jugador en negrita -->
+          </div>
         </div>
-        
+        <div>
+          <!-- Botón de ver jugador con estilo gris -->
+          <a href="viewPlayer/<?= $player->id_jugador ?>" class="btn btn-secondary btn-sm fw-bold mx-2">Ver</a> <!-- Color btn-secondary para gris -->
+        </div>
     </li>
   <?php } ?>
 </ul>
+
+
 
 
 
