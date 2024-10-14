@@ -19,6 +19,11 @@
     height: 35px;
     margin-left: 700px;
 }
+
+.text-login{
+    text-decoration: none;
+    color: white;
+}
 .logo-logout{
     background-image: url(../img/logout-icon.png);
     background-position: center center;
