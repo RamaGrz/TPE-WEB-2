@@ -5,5 +5,6 @@ Descripcion: Vamos a crear un sitio que muestre las caracteristicas de Clubes y 
 
 DER:
 
-![DER](https://github.com/user-attachments/assets/005c0c87-0a4b-409c-94e6-e611ba2d24f5)
+![D E R](https://github.com/user-attachments/assets/6150e0c2-e28a-4f4f-ada4-511a8d1c5b7a)
+
 
