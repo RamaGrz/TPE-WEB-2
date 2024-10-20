@@ -30,15 +30,28 @@
                     <label for="edad" class="form-label">Edad</label>
                     <input type="number" class="form-control" name="edad" value='<?= $player->edad ?>' required>
                 </div>
-                <div class="col-md-2 text-center">
-                 <h3 class="form-label">Club</h3>
+                <div class="col-md-6">
+                <label for="club" class="form-label">Club</label>
                 <select name="id_club" id="club" class="form-select">
-                <option selected disabled>Seleccionar...</option>
-                <?php foreach ($clubs as $club) {?>
-                    <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
-                <?php } ?>
+                    <option value="" disabled>Seleccionar...</option>
+                    <?php if ($player->id_club) { ?>
+                        <!-- Opción del club actual -->
+                        <option value="<?= $player->id_club ?>" selected><?= $player->nombre_club ?></option>
+                    <?php } else { ?>
+                        <!-- Opción por defecto si no hay club asociado -->
+                        <option value="" selected>Sin club</option>
+                    <?php } ?>
+                    
+                    <!-- Listar los demás clubes -->
+                    <?php foreach ($clubs as $club) { ?>
+                        <!-- Evitar duplicar la opción del club actual -->
+                        <?php if ($club->id_club != $player->id_club) { ?>
+                            <option value="<?= $club->id_club ?>"><?= $club->nombre ?></option>
+                        <?php } ?>
+                    <?php } ?>
                 </select>
-                 </div>
+            </div>
+
 
                 <!-- Botón de enviar -->
                 <div class="col-md-12 d-flex justify-content-center mt-3">

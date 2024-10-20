@@ -21,13 +21,13 @@
 <body>
     <!-- main header -->
     <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="padding: 13px 50px;"> <!-- Aumenta el padding para mayor altura -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="padding: 13px 50px;"> 
         <div class="container-fluid">
-            <div class="d-flex justify-content-between align-items-center w-100 h-100"> <!-- Centrar verticalmente -->
+            <div class="d-flex justify-content-between align-items-center w-100 h-100">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
                      <a href="home" class="nav-link">
-                        <div class="logo-header" style="height: 50px;"></div>  <!-- Ajusta la altura según sea necesario -->
+                        <div class="logo-header" style="height: 50px;"></div>  
                      </a>
                     </li>
 
@@ -39,12 +39,12 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <?php if(!isset($_SESSION['USER_ID'])): ?>
-                        <li class="nav-item" style="margin-right: 20px;"> <!-- Añadir margen derecho -->
-                            <a class="nav-link text-white" href="showLogin">login</a>
+                        <li class="nav-item" style="margin-right: 20px;"> 
+                            <a class="nav-link text-white" href="showLogin">Log In</a>
                         </li>
                     <?php else: ?>
-                        <li class="nav-item" style="margin-right: 20px;"> <!-- Añadir margen derecho -->
-                            <a class="nav-link text-white" href="logout">logout</a>
+                        <li class="nav-item" style="margin-right: 20px;"> 
+                            <a class="nav-link text-white" href="logout">Log Out</a>
                         </li>
                     <?php endif; ?>
                 </ul>
